@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>PERPUSKU - GILACODING.COM</title>
+  <title>OXY</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="{{asset('vendors/iconfonts/mdi/css/materialdesignicons.min.css')}}">
   <link rel="stylesheet" href="{{asset('vendors/css/vendor.bundle.base.css')}}">
@@ -30,7 +30,7 @@
     <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
         <a class="navbar-brand brand-logo" href="index.html" style="color: #2d2d2d">
-          PERPUSKU
+          OXY
         </a>
            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
           <span class="icon-menu"></span>
@@ -43,12 +43,7 @@
          
           <li class="nav-item dropdown d-xl-inline-block">
             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-              <span class="profile-text">Hello, !</span>
-                
-                  <img class="img-xs rounded-circle"  src="{{asset('images/user/default.png')}}" alt="profile image">
-             
-                <img class="img-xs rounded-circle"  src="{{asset('images/user/')}}" alt="profile image">
-               
+              <span class="profile-text">Hello Logout Here</span><i class='fas'>&#xf2f5;</i>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <a class="dropdown-item p-0">
@@ -56,9 +51,7 @@
                  
                 </div>
               </a>
-              <a class="dropdown-item" style="margin-top: 20px;" href="">
-               Edit Profile
-              </a>
+              
               <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                  Sign Out
@@ -67,6 +60,12 @@
                                             {{ csrf_field() }}
                                         </form>
               </a>
+              @if (Route::has('password.request'))
+                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        {{ __('Forgot Your Password?') }}
+                                    </a>
+                                @endif
+             
             </div>
           </li>
         </ul>

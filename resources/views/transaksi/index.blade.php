@@ -15,7 +15,7 @@
 <div class="row">
 
   <div class="col-lg-2">
-    <a href="{{ route('transaksi.create') }}" class="btn btn-primary btn-rounded btn-fw"><i class="fa fa-plus"></i> Tambah Transaksi</a>
+    <a href="{{ route('transaksi.create') }}" class="btn btn-primary btn-rounded btn-fw"><i class="fa fa-plus"></i> Pinjam Buku</a>
   </div>
     <div class="col-lg-12">
                   @if (Session::has('message'))
@@ -28,7 +28,7 @@
               <div class="card">
 
                 <div class="card-body">
-                  <h4 class="card-title">Data Transaksi</h4>
+                  <h4 class="card-title">Data Pinjam Buku</h4>
                   
                   <div class="table-responsive">
                     <table class="table table-striped" id="table">
@@ -39,6 +39,9 @@
                           </th>
                           <th>
                             Buku
+                          </th>
+                          <th>
+                            Penulis
                           </th>
                           <th>
                             Peminjam
@@ -70,6 +73,11 @@
                             {{$data->buku->judul}}
                           
                           </td>
+                          <td>
+                          
+                          {{$data->buku->pengarang}}
+                        
+                        </td>
 
                           <td>
                             {{ $data->user->name}}

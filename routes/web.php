@@ -7,6 +7,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\Auth\RegisterController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,11 +21,11 @@ use App\Http\Controllers\LaporanController;
 |
 */
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/', 'HomeController@index');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 
 Auth::routes();
+
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::middleware('role:admin')->get('/buku', function() {
@@ -32,7 +34,8 @@ Route::middleware('role:admin')->get('/buku', function() {
 
 Route::resource('/buku', BukuController::class)->middleware('role:admin');
 Route::resource('/roles', RoleController::class)->middleware('role:admin');
-Route::resource('transaksi', TransaksiController::class)->middleware('role:anggota');
+Route::resource('/transaksi', TransaksiController::class)->middleware('role:anggota');
+Route::get('/lihat', [BukuController::class, 'lihat'])->middleware('auth');
 
 Route::get('/laporan/trs', [LaporanController::class, 'transaksi']);
 Route::get('/laporan/trs/pdf', [LaporanController::class, 'transaksiPdf']);

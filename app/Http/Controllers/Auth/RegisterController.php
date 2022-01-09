@@ -38,7 +38,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+            $this->middleware('role:admin');
     }
 
     /**
@@ -75,16 +75,5 @@ class RegisterController extends Controller
         return $user;
     }
 
-    protected function createadmin(array $data)
-    {
-        $user =User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-
-        ]);
-        $user->assignRole('admin');
-
-        return $user;
-    }
+   
 }

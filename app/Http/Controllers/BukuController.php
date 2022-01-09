@@ -26,7 +26,11 @@ class BukuController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
+    public function lihat()
+    {
+        $datas = Buku::get();
+        return view('lihat', compact('datas'));
+    }
     public function index(Request $request)
     {
         if($request->user()->hasRole('anggota')) {
@@ -176,9 +180,9 @@ class BukuController extends Controller
             Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
             return redirect()->to('/');
         }
-
+        $buku = Buku::all();
         $data = Buku::findOrFail($id);
-        return view('buku.edit', compact('data'));
+        return view('buku.edit', compact('data', 'buku'));
     }
 
     /**

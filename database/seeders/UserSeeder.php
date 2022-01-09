@@ -36,18 +36,6 @@ class UserSeeder extends Seeder
         $user->assignRole('anggota');
     
     
-    $user = User::create([
-        'name' => 'Ahmad Diyaz', 
-        'email' => 'ahmaddiyaz.rpl3@gmail.com',
-        'password' => bcrypt('123456')
-    ]);
-
-    $role = Role::create(['name' => 'superadmin']);
- 
-    $permissions = Permission::pluck('id','id')->all();
-
-    $role->syncPermissions($permissions);
- 
-    $user->assignRole([$role->id]);
-}
+    
+    }
 }
